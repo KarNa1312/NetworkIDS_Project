@@ -8,6 +8,5 @@ __pycache__
 .gitignore
 .dockerignore
 .env
-# By default we ignore pickled models so image stays small.
-# Remove the next line if you want to include .pkl models inside the image.
+# Comment this out if you want to bake models into image
 *.pkl
