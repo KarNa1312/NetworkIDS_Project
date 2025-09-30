@@ -1,0 +1,13 @@
+__pycache__
+*.pyc
+*.db
+*.log
+.ipynb_checkpoints
+.vscode
+.git
+.gitignore
+.dockerignore
+.env
+# By default we ignore pickled models so image stays small.
+# Remove the next line if you want to include .pkl models inside the image.
+*.pkl
