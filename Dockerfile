@@ -1,4 +1,4 @@
-# Dockerfile (place at repo root)
+# Dockerfile
 FROM python:3.10-slim
 
 LABEL maintainer="Your Name <you@example.com>"
@@ -9,10 +9,10 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-# Copy only requirements first (layer caching)
+# Copy only requirements first (for caching)
 COPY requirements.txt /app/requirements.txt
 
-# Install system dependencies needed for some Python packages
+# Install system dependencies (needed by some Python packages)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     build-essential \
@@ -21,11 +21,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install Python dependencies
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Copy project files into the image
+# Copy the entire repo into the image
 COPY . /app
 
-# Configure which Streamlit file to run (change if your file location differs)
-ENV STREAMLIT_ENTRYPOINT=src/dashboard/realtime_detector1.py
+# Set default Streamlit entrypoint
+ENV STREAMLIT_ENTRYPOINT=app/realtime_detector1.py
 
 EXPOSE 8501
 
