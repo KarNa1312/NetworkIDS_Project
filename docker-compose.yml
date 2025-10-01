@@ -6,7 +6,8 @@ services:
     ports:
       - "8501:8501"
     environment:
-      - STREAMLIT_ENTRYPOINT=src/dashboard/realtime_detector1.py
+      - STREAMLIT_ENTRYPOINT=app/realtime_detector1.py
     volumes:
-      - ./models:/app/models   # mount local models folder into container
+      - ./models:/app/models   # mount models
+      - ./data:/app/data       # ← ADD THIS to persist database
     restart: unless-stopped
