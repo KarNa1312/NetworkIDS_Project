@@ -24,14 +24,10 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # Copy the entire repo into the image
 COPY . /app
 
-<<<<<<< HEAD
+
 # Configure which Streamlit file to run (change if your file location differs)
 ENV STREAMLIT_ENTRYPOINT=app/realtime_detector1.py
 
-=======
-# Set default Streamlit entrypoint
-ENV STREAMLIT_ENTRYPOINT=app/realtime_detector1.py
->>>>>>> 324e6b131986dd4b324dabf721cc8a689dbe3715
 
 EXPOSE 8501
 
