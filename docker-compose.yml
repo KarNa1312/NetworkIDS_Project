@@ -8,6 +8,10 @@ services:
     environment:
       - STREAMLIT_ENTRYPOINT=app/realtime_detector1.py
     volumes:
+<<<<<<< HEAD
       - ./models:/app/models   # mount models
       - ./data:/app/data       # ← ADD THIS to persist database
+=======
+      - ./models:/app/models   # mount local models into container
+>>>>>>> 324e6b131986dd4b324dabf721cc8a689dbe3715
     restart: unless-stopped
