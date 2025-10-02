@@ -53,7 +53,7 @@ DATABASE_TIMEOUT = 10.0
 class DatabaseManager:
     """Database manager with proper schema handling"""
     
-    def __init__(self, db_path: str = "network_ids.db"):
+    def __init__(self, db_path: str = "data/security_incidents.db"):
         self.db_path = db_path
         self.lock = threading.Lock()
         self._initialize_database()
@@ -137,7 +137,7 @@ class DatabaseManager:
 class AWSNetworkIDS:
     """Enhanced AWS Network IDS with guaranteed balanced attack distribution"""
     
-    def __init__(self, model_path: str = r"C:\Users\DELL\OneDrive\Desktop\NetworkIDS_Models_20250909_153822\NetworkIDS_AWS_MultiDataset_v1_lightweight.pkl"):
+    def __init__(self, model_path: str = r"models/NetworkIDS_AWS_MultiDataset_v1_lightweight.pkl"):
         logger.info("Initializing AWS Network IDS with balanced attack patterns...")
         
         # Initialize components
