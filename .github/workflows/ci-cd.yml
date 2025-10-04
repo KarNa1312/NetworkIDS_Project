@@ -36,9 +36,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+<<<<<<< HEAD
           pip install pytest pytest-cov  # Install testing tools
       
       - name: Verify project structure
+=======
+
+      - name: Run basic tests
+>>>>>>> a8ef3cbfcec89e3ebf0ba0e9538a5cbaabdc4565
         run: |
           echo "📁 Verifying project structure..."
           ls -la
