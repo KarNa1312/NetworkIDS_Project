@@ -1,0 +1,2 @@
+echo pytest==8.0.0 >> requirements.txt
+pip install pytest
