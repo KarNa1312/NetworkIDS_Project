@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: network-ids-service
+  labels:
+    app: network-ids
+spec:
+  type: NodePort  # Expose on Minikube node's port
+  selector:
+    app: network-ids  # Route traffic to pods with this label
+  ports:
+  - port: 8501        # Service port
+    targetPort: 8501  # Container port
+    nodePort: 30007   # External port (30000-32767 range)
+    protocol: TCP
+    name: streamlit

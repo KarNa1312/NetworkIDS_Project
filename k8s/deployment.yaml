@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: network-ids-deployment
+  labels:
+    app: network-ids
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: network-ids
+  template:
+    metadata:
+      labels:
+        app: network-ids
+    spec:
+      containers:
+      - name: network-ids-container
+        image: karna1312/network-ids-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8501
+          name: streamlit
+        env:
+        - name: STREAMLIT_ENTRYPOINT
+          value: "app/realtime_detector1.py"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        # ADD VOLUME MOUNT HERE
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data  # Mount to /app/data inside container
+      # ADD VOLUME DEFINITION HERE
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: network-ids-data-pvc
