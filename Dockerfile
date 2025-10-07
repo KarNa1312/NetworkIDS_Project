@@ -28,6 +28,9 @@ COPY . /app
 # Configure which Streamlit file to run (change if your file location differs)
 ENV STREAMLIT_ENTRYPOINT=app/realtime_detector1.py
 
+# Create directories for runtime data
+RUN mkdir -p /app/data && chmod 777 /app/data
+RUN mkdir -p /app/logs && chmod 777 /app/logs
 
 EXPOSE 8501
 

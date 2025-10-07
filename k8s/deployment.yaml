@@ -31,12 +31,4 @@ spec:
           limits:
             memory: "2Gi"
             cpu: "1000m"
-        # ADD VOLUME MOUNT HERE
-        volumeMounts:
-        - name: data-volume
-          mountPath: /app/data  # Mount to /app/data inside container
-      # ADD VOLUME DEFINITION HERE
-      volumes:
-      - name: data-volume
-        persistentVolumeClaim:
-          claimName: network-ids-data-pvc
+
